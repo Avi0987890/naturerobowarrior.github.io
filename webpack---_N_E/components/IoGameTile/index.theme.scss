@@ -1,0 +1,130 @@
+@keyframes ratingsGlow {
+  0% {
+    box-shadow: 0 0 3px 1px rgba($ioOrange, 0.5);
+  }
+
+  45% {
+    box-shadow: 0 0 10px 1px rgba($ioOrange, 1);
+  }
+
+  55% {
+    box-shadow: 0 0 10px 1px rgba($ioOrange, 1);
+  }
+
+  100% {
+    box-shadow: 0 0 3px 1px rgba($ioOrange, 0.5);
+  }
+}
+
+@mixin ioGameTileHover {
+  // box-shadow: 0 3px 7px #21252E;
+
+  .GameTile__Preview {
+    &::before {
+      opacity: 0;
+      transition: 400ms ease;
+    }
+
+    &::after {
+      box-shadow: 0 0 0 2px rgba(#41DDFF, 0.65) inset;
+      transition: 400ms ease;
+    }
+  }
+
+  // .GameTile__Description {
+  //   opacity: 0;
+  //   transform: translateY(50%);
+  //   transition: 400ms ease;
+  // }
+}
+
+.IoGameTile {
+  box-shadow: 0 3px 7px  $darkBgColor;
+  background: $darkBgColor;
+
+  // @include isDesktop {
+  //   transition-delay: 0;
+  //   transition: transform 200ms ease;
+
+  //   &:hover {
+  //     transition-delay: 500ms;
+  //     transform: scale(1.15);
+  //     z-index: 1;
+
+  //     &.IoGameTile--featured {
+  //       transform: scale(1);
+  //     }
+  //   }
+  // }
+
+  .GameTile__Description {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+    @include smallText;
+    transition: 1s ease;
+  }
+
+  .GameTile__Preview {
+    &::before {
+      // background-image: linear-gradient(to top, rgba($ioCyan, 0.65), rgba($ioCyan, 0));
+      transition: 1s ease;
+    }
+
+    &::after {
+      box-shadow: 0 0 0 0 rgba(#41DDFF, 0.65) inset;
+      transition: 1s ease;
+    }
+  }
+  
+  &--hideDesc {
+    .GameTile__Description {
+      opacity: 0;
+      transform: translateY(50%);
+      transition: 400ms ease;
+    }
+  }
+
+  @include isDesktop {
+    img {
+      transition: 400ms ease;
+    }
+
+    &:hover {
+      @include ioGameTileHover;
+
+      .GameTile__Description {
+        opacity: 0;
+        transform: translateY(50%);
+        transition: 400ms ease;
+      }
+    }
+  }
+
+  &__Rating {
+    background-color: rgba($ioBlue, 0.8);
+    padding: 0 $marginSm1;
+    border-radius: 100px 0 0 100px;
+    margin-right: -$gameTilePadding;
+
+    &--good {
+      background-color: darken($ioOrange, 3);
+      animation-duration: 1.5s;
+      animation-name: ratingsGlow;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      text-shadow: 0 1px 3px #000;
+    }
+  }
+
+  &__Title {
+    background-color: rgba($ioBlue, 0.8);
+    padding: 0 $marginSm1;
+    border-radius: 0 100px 100px 0;
+    margin-left: -$gameTilePadding;
+    margin-right: $gameTilePadding;
+  }
+}
+
+.IoGameTile__noMobile {
+  background: rgba($theme, 0.4);
+  backdrop-filter: contrast(0.5) grayscale(0.5);
+}

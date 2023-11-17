@@ -1,0 +1,160 @@
+.Flex {
+  display: flex;
+  
+  &--inline {
+    display: inline-flex;
+  }
+  
+  &--wrap {
+    flex-wrap: wrap;
+  }
+  &--wrapReverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  &--directionColumn {
+    flex-direction: column;
+  }
+  &--directionColReverse {
+    flex-direction: column-reverse;
+  }
+  &--directionRow {
+    flex-direction: row;
+  }
+  &--directionRowReverse {
+    flex-direction: row-reverse;
+  }
+
+  &--alignStart {
+    align-items: flex-start;
+  }
+  &--alignEnd {
+    align-items: flex-end;
+  }
+  &--alignCenter {
+    align-items: center;
+  }
+  &--alignBaseline {
+    align-items: baseline;
+  }
+  &--alignStretch {
+    align-items: stretch;
+  }
+
+  &--justifyStart {
+    justify-content: flex-start;
+  }
+  &--justifyEnd {
+    justify-content: flex-end;
+  }
+  &--justifyCenter {
+    justify-content: center;
+  }
+  &--justifySpaceBetween {
+    justify-content: space-between;
+  }
+  &--justifySpaceAround {
+    justify-content: space-around;
+  }
+  &--justifySpaceEvenly {
+    justify-content: space-evenly;
+  }
+
+  &--pullTop {
+    margin-bottom: auto !important;
+  }
+  &--pullRight {
+    margin-left: auto !important;
+  }
+  &--pullBottom {
+    margin-top: auto !important;
+  }
+  &--pullLeft {
+    margin-right: auto !important;
+  }
+
+  &--centerX {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  &--centerY {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+  &--center {
+    margin: auto !important;
+  }
+
+  &--fit {
+    flex: 1;
+  }
+  &--narrow {
+    flex: none;
+    width: unset;
+  }
+  &--wide {
+    width: 100%;
+  }
+  &--tall {
+    height: 100%;
+  }
+  &--fill {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--threeQuarters {
+    flex: none;
+    width: 75%;
+  }
+  &--twoThirds {
+    flex: none;
+    width: 66.6666%;
+  }
+  &--half {
+    flex: none;
+    width: 50%;
+  }
+  &--oneThird {
+    flex: none;
+    width: 33.3333%;
+  }
+  &--oneQuarter {
+    flex: none;
+    width: 25%;
+  }
+  &--oneFifth {
+    flex: none;
+    width: 20%;
+  }
+  &--twoFifths {
+    flex: none;
+    width: 40%;
+  }
+  &--threeFifths {
+    flex: none;
+    width: 60%;
+  }
+  &--fourFifths {
+    flex: none;
+    width: 80%;
+  }
+
+  &--collapseMobile {
+    @include isMobile {
+      flex-direction: column !important;
+
+      > .Flex {
+        width: auto !important;
+      }
+    }
+  }
+
+  @for $i from 1 through 6 {
+    @include flexGap ($i, $i);
+  }
+
+  &--gap0 {
+    @include customFlexGap(1rem);
+  }
+}

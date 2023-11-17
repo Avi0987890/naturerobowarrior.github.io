@@ -1,0 +1,49 @@
+@mixin checkboxRadio {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.25;
+  position: relative;
+
+  input {
+    display: none;
+  }
+  &[disabled],
+  fieldset[disabled] &,
+  input[disabled] + span {
+    cursor: not-allowed;
+  }
+
+  input + span {
+    @include input;
+    min-width: 1.5em;
+    min-height: 1.5em;
+    max-width: 1.5em;
+    max-height: 1.5em;
+    padding: 0;
+    margin-right: 0.625em;
+    cursor: pointer;
+    display: inline-block;
+  }
+  span:last-of-type {
+    display: inline-block;
+    user-select: none;
+  }
+
+  @include fontSizes;
+}
+.Checkbox {
+  @include checkboxRadio;
+  input + span {
+    border-radius: $checkboxBorderRadius;
+  }
+}
+.Radio {
+  @include checkboxRadio;
+  input + span {
+    border-radius: $radiusRounded;
+  }
+  & + .Radio {
+    margin-right: 0.5em;
+  }
+}

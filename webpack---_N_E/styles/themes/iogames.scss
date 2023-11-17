@@ -1,0 +1,100 @@
+.Theme--iogames {
+  @import '@lib/styles/util/themePalette';
+
+  $ioOrange: #FFA100;
+  $ioCyan: #2AB5E3;
+  $ioBlue: #006BB0;
+  $ioDarkBlue: #005186;
+  $ioDarkGray: #333641;
+  $ioLightGray: #92A9C3;
+
+  @import '@lib/styles/util/themeDefaults';
+
+  // Theme variables
+
+  $darkBgColor: $ioDarkGray;
+  // $inputShadow: 0 0 0 1px $ioBlue;
+  $boxBorderColor: $ioCyan;
+
+  // Derrived overrides
+
+  $isDark: true; // use this in <component>.Theme.scss files if you need logic for dark/light themes
+
+  $theme: #404451;
+  $themeInverted: #f9f9f9;
+  $bgColor: $ioDarkGray;
+  $primaryColor: $ioCyan;
+  $secondaryColor: $ioOrange;
+
+  $fontColor: $themeInverted;
+  $lightColor: $ioLightGray;
+  $strongColor: $fontColor;
+  $titleColor: $fontColor;
+  $subtitleColor: $fontColor;
+
+  $buttonColor: $fontColor;
+  $buttonHoverColor: $fontColor;
+  $buttonFocusColor: $fontColor;
+  $buttonActiveColor: $fontColor;
+  $buttonTextColor: $fontColor;
+
+  $buttonBgColor: $primaryColor;
+  $buttonBorderColor: $primaryColor;
+  $buttonHoverBorderColor: $primaryColor;
+  $buttonFocusBorderColor: $primaryColor;
+  $buttonActiveBorderColor: $primaryColor;
+
+  $inputBgColor: $ioDarkGray;
+  $inputShadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+  $inputIconColor: $ioCyan;
+  $inputIconActiveColor: $ioCyan;
+  $autocompleteInputShadow: $inputShadow;
+  // $inputShadow: 0 0 0 1px $ioCyan;
+
+  $dropdownContentBgColor: $darkBgColor;
+  $dropdownContentShadow: $inputFocusBoxShadowSize rgba($primaryColor, 0.25);
+  $dropdownDividerBgColor: rgba($primaryColor, 0.25);
+  $dropdownItemColor: $lightColor;
+  $dropdownItemHoverBgColor: rgba($primaryColor, 0.25);
+  $dropdownItemActiveColor: $themeInverted;
+  $dropdownItemActiveBgColor: rgba($primaryColor, 1);
+
+  $boxBgColor: rgba($theme, 0.85);
+  $boxShadow: 0 0 0 1px $ioDarkGray, 0 7px 15px $ioDarkGray;
+  // $boxLinkHoverShadow: 0 0.5em 1em -0.125em rgba($themeInverted, 0.1), 0 0 0 1px $primaryColor !default;
+  // $boxLinkActiveShadow: inset 0 1px 2px rgba($themeInverted, 0.2), 0 0 0 1px $primaryColor !default;
+
+  $gameObjectBgColor: $darkBgColor;
+  $gameObjectPreviewFilter: blur(20px) grayscale(50%);
+  $gameObjectPreviewColor: rgba($bgColor, 0.35);
+  $gameObjectPreviewBlendMode: multiply;
+
+  $menuListHoverBgColor: $ioDarkGray;
+  $menuListHoverBorderColor: $ioCyan;
+  $menuListActiveBorderColor: #366981;
+  $menuListColor: $lightColor;
+  $menuListHoverColor: $fontColor;
+
+  $loaderColor: rgba(#fff, 0.85);
+
+  @import '@lib/styles/util/themeDerived';
+  @import '@/styles/util/theme';
+
+  hr {
+    height: 1px;
+    background-color: rgba($lightColor, 0.35);
+  }
+
+  #ymbp_usp_iogames_next {
+    color: $lightColor !important;
+    background-color: $darkBgColor !important;
+
+    * {
+      background-color: transparent !important;
+    }
+
+    a {
+      color: $primaryColor !important;
+    }
+  }
+}

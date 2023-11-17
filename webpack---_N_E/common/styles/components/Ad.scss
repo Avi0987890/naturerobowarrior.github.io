@@ -1,0 +1,82 @@
+.Ad {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+
+  > * {
+    margin: auto;
+    font-size: 100%;
+    word-spacing: normal;
+  }
+
+  &--alignTop {
+    > * {
+      margin-top: 0;
+    }
+  }
+}
+
+.AdContainer {
+  margin: auto;
+  display: block;
+  pointer-events: all;
+  position: relative;
+  z-index: 1;
+  font-size: 0;
+  word-spacing: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+
+  // Sizes
+  &--banner {
+    width: 468px;
+    height: 60px;
+  }
+  &--mobileBanner {
+    width: 320px;
+    height: 50px;
+  }
+  &--halfPage {
+    width: 300px;
+    height: 600px;
+  }
+  &--largeLeaderboard {
+    width: 970px;
+    height: 90px;
+  }
+  &--largeRect {
+    width: 336px;
+    height: 280px;
+  }
+  &--leaderboard {
+    width: 728px;
+    height: 90px;
+  }
+  &--mediumRect {
+    width: 300px;
+    height: 250px;
+  }
+  &--mobileLeaderboard {
+    width: 320px;
+    height: 50px;
+  }
+  &--skyscraper {
+    width: 120px;
+    height: 600px;
+  }
+  &--smallSquare {
+    width: 200px;
+    height: 200px;
+  }
+  &--square {
+    width: 250px;
+    height: 250px;
+  }
+  &--wideSkyscraper {
+    width: 160px;
+    height: 600px;
+  }
+}

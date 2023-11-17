@@ -1,0 +1,18 @@
+.Notification {
+  color: $notificationColor;
+  background-color: $notificationBgColor;
+
+  // Colors
+  &--success {
+    background-color: $successColor;
+    color: $successColorInverted; 
+  }
+  &--warning {
+    background-color: $warningColor;
+    color: $warningColorInverted; 
+  }
+  &--error {
+    background-color: $errorColor;
+    color: $errorColorInverted; 
+  }
+}

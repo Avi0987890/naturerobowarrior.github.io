@@ -1,0 +1,57 @@
+@use 'sass:math';
+
+// The contents of this file are globally available in every SASS file automatically, without importing
+// This file is meant for global variables, mixins, functions, etc.
+// DO NOT put any styles in this file. Global styles belong in app.scss.
+
+/*
+ * Global variables
+ */
+
+@import '@lib/styles/util/defaults';
+@import '@lib/styles/util/defaultsDerived';
+@import '@lib/styles/util';
+
+$bodyPadding: $marginMd1;
+
+$controlRadius: 100px;
+$controlBorderWidth: 0;
+$checkboxBorderRadius: $emSm1;
+
+$dropdownContentRadius: 0.5rem;
+$dropdownContentPaddingTop: 1rem;
+$dropdownContentPaddingBottom: 1rem;
+$dropdownContentOffset: 7px;
+
+$titleWeight: $weightLight;
+
+$boxPadding: $marginMd3;
+
+$gameTileGridGap: 8px;
+$gameTileWidth: 178px;
+$gameTileHeight: 100px;
+$gameTagThumbWidth: 64px;
+
+// Full-width mobile tiles
+// $gameTileMobileHeight: calc((100vw - #{$bodySmallScreenPadding * 2}) * #{$gameTileHeight / $gameTileWidth});
+// $gameTileMobileWidth: calc(100vw - #{$bodySmallScreenPadding * 2});
+
+// Half-width mobile tiles
+$gameTileMobileHeight: calc((50vw - #{$bodySmallScreenPadding} - #{$gameTileGridGap * 0.5}) * #{math.div($gameTileHeight, $gameTileWidth)});
+$gameTileMobileWidth: calc(50vw - #{$bodySmallScreenPadding} - #{$gameTileGridGap * 0.5});
+
+/*
+ * Mixins
+ */
+
+@mixin smallText {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: $fontSizeSm;
+}
+
+/*
+ * Functions
+ */
+
+// ...

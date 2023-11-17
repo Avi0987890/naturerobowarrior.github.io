@@ -1,0 +1,7 @@
+.Box {
+  @extend .Block;
+  
+  display: block;
+  padding: $boxPadding;
+  border-radius: $boxRadius;
+}

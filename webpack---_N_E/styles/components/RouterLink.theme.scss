@@ -1,0 +1,9 @@
+.RouterLink {
+  color: lighten($primaryColor, 10);
+  transition: 200ms ease;
+  font-weight: normal;
+
+  &:hover {
+    color: $buttonHoverColor;
+  }
+}

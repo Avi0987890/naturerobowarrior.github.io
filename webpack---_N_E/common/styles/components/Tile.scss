@@ -1,0 +1,62 @@
+$tileSpacing: 0.75rem !default;
+
+.Tile {
+  align-items: stretch;
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-height: min-content;
+  
+  // Modifiers
+  &--child {
+    margin: 0 !important;
+  }
+
+  &--shrink {
+    flex-grow: 0;
+  }
+
+  &--vertical {
+    flex-direction: column;
+
+    & > .Tile--child:not(:last-child) {
+      margin-bottom: $spacing !important;
+    }
+  }
+
+  @for $i from 1 through 6 {
+    &--gap#{$i} {
+      &.Tile--container {
+        margin-left: ($spacing * 0.5) * -1 * $i;
+        margin-right: ($spacing * 0.5) * -1 * $i;
+        margin-top: ($spacing * 0.5) * -1 * $i;
+    
+        &:last-child {
+          margin-bottom: ($spacing * 0.5) * -1 * $i;
+        }
+        &:not(:last-child) {
+          margin-bottom: ($spacing * 0.5) * $i;
+        }
+      }
+    
+      .Tile--parent {
+        padding: ($spacing * 0.5) * $i;
+      }
+    }
+  }
+
+  // Responsiveness
+  @include isDesktop {
+    &:not(.Tile--child) {
+      display: flex;
+    }
+
+    @for $i from 1 through 12 {
+      &--size#{$i} {
+        flex: none;
+        width: ($i * 0.08334) * 100%; // ($i / 12) * 100%
+      }
+    }
+  }
+}

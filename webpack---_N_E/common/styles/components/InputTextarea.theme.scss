@@ -1,0 +1,36 @@
+@mixin inputTextareaTheme {
+  @include inputTheme;
+
+  box-shadow: $inputShadow;
+  &[readonly] {
+    box-shadow: none;
+  } 
+  
+  // Colors
+  &--error {
+    border-color: $errorColor;
+    &:focus,
+    &--focused,
+    &:active,
+    &--active {
+      border-color: $errorColor;
+      box-shadow: $inputFocusBoxShadowSize rgba($errorColor, 0.25);
+    } 
+  }
+}
+
+.Input {
+  @include inputTextareaTheme;
+
+  &--static {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.Textarea {
+  @include inputTextareaTheme;
+}

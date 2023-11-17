@@ -1,0 +1,66 @@
+.Select {
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  &:not(.Select--loading) {
+    &::after {
+      right: 1.125em;
+      z-index: 4;
+    }
+  }
+  &--rounded {
+    select {
+      border-radius: $radiusRounded;
+      padding-right: 1em;
+    }
+  }
+  select {
+    @include input;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    max-width: 100%;
+    outline: none;
+    &::-ms-expand {
+      display: none;
+    }
+    padding-right: 2.5em;
+  }
+
+  // Sizes
+  &--small {
+    @include controlSmall;
+  }
+  &--medium {
+    @include controlMedium;
+  }
+  &--large {
+    @include controlLarge;
+  }  
+
+  // Modifiers
+  &--fullwidth {
+    width: 100%;
+    select {
+      width: 100%;
+    }
+  }
+  &--loading {
+    &::after {
+      margin-top: 0;
+      position: absolute;
+      right: 0.625em;
+      top: 0.625em;
+      transform: none;
+    }
+    &--small:after {
+      font-size: $fontSizeSm;
+    }
+    &--medium:after {
+      font-size: $fontSizeMd;
+    }
+    &--large:after {
+      font-size: $fontSizeLg;
+    }
+  }
+}

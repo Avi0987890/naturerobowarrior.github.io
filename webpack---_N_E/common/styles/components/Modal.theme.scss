@@ -1,0 +1,29 @@
+.ModalCard {
+  &__Head,
+  &__Foot {
+    background-color: $modalCardHeadBgColor;
+  }
+
+  &__Head {
+    border-bottom-color: $modalCardBorderColor;
+  }
+
+  &__Title {
+    color: $modalCardTitleColor;
+  }
+
+  &__Foot {
+    border-top-color: $modalCardBorderColor;
+  }
+
+  &__Body {
+    background-color: $modalCardBodyBgColor;
+  }
+}
+
+.Modals {
+  &__Bg {
+    background-color: $modalBgColor;
+    backdrop-filter: $modalBgFilter;
+  }
+}

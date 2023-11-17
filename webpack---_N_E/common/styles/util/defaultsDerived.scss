@@ -1,0 +1,105 @@
+// Typography
+$fontSizeSm: $size7 !default;
+$fontSize: $size6 !default;
+$fontSizeMd: $size5 !default;
+$fontSizeLg: $size4 !default;
+
+$titleFamily: $fontFamily !default;
+$titleSize: $size3 !default;
+$titleWeight: $weightMedium !default;
+$titleLineHeight: 1.125 !default;
+$subtitleFamily: $fontFamily !default;
+$subtitleSize: $size5 !default;
+$subtitleWeight: $weightNormal !default;
+$subtitleLineHeight: 1.25 !default;
+$subtitleNegativeMargin: -1.25em !default;
+
+// Layout
+$fixedZ: 99999999;
+$bodyPadding: $marginMd3 !default;
+$bodySmallScreenPadding: $marginSm3 !default;
+$bodyMaxWidth: 1820px !default;
+$bodyMaxWidthUltrahd: 1820px !default;
+$spacing: $marginMd1 !default;
+$emSpacing: $emMd1 !default;
+
+// Borders
+$borderWidth: 1px !default;
+$borderThick: 2px !default;
+
+// Inputs
+$controlRadius: $radius !default;
+$controlRadiusSm: $radiusSm !default;
+$controlHeight: 2.5em !default;
+$controlLineHeight: 1.5 !default;
+$controlBorderWidth: $borderWidth !default;
+$controlPaddingVertical: calc(0.5em - #{$controlBorderWidth}) !default;
+$controlPaddingHorizontal: calc(1em - #{$controlBorderWidth}) !default;
+
+$inputHeight: 2.5em !default;
+$inputBorderRadius: $emRadiusSm !default;
+$inputFocusBoxShadowSize: 0 0 0 $emSm0 !default;
+$checkboxBorderRadius: $emRadiusSm !default;
+
+$textareaPadding: $controlPaddingHorizontal;
+$textareaMaxHeight: 40em !default;
+$textareaMinHeight: 8em !default;
+
+// Buttons
+$buttonFamily: false !default;
+$buttonBorderWidth: $controlBorderWidth !default;
+$buttonPaddingVertical: calc(0.5em - #{$buttonBorderWidth}) !default;
+$buttonPaddingHorizontal: 1em !default;
+$buttonTextDecoration: underline !default;
+
+// HR
+$hrHeight: 2px !default;
+$hrMargin: $spacing * 1.5 !default;
+
+// Box
+$boxRadius: $radiusLg !default;
+$boxPadding: 1.25rem !default;
+
+//Notifications
+$notificationRadius: $radius !default;
+$notificationPadding: 1.25rem 2.5rem 1.25rem 1.5rem !default;
+
+//Dropdown
+$dropdownMenuMinWidth: 12rem !default;
+$dropdownContentOffset: 4px !default;
+$dropdownContentPaddingBottom: 0.5rem !default;
+$dropdownContentPaddingTop: 0.5rem !default;
+$dropdownContentRadius: $radius !default;
+$dropdownContentZ: 20 !default;
+
+//Icon
+$iconSize: 1.5rem !default;
+$iconSizeSmall: 1rem !default;
+$iconSizeMedium: 2rem !default;
+$iconSizeLarge: 3rem !default;
+$iconTextSpacing: 0.25em !default;
+
+// Game Tile
+$gameTileWidth: 10.25rem !default;
+$gameTilePadding: $emSpacing * 0.5 !default;
+$gameTileBorderRadius: $radius !default;
+
+// Modal
+$modalContentMargin: $spacing !default;
+$modalContentWidth: 640px !default;
+$modalCloseSpacing: $spacing !default;
+$modalCardPadding: $spacing;
+$modalCardBorder: solid $borderWidth !default;
+$modalCardRadius: $radius !default;
+$modalCardTitleFontSize: $fontSizeMd !default;
+$modalCardTitleLineHeight: $titleLineHeight !default;
+
+// Menu
+$menuItemRadius: $radiusSm !default;
+$menuListLineHeight: 1.25 !default;
+$menuListLinkPadding: 0.5em 0.75em !default;
+$menuNestedListMargin: 0.75em !default;
+$menuNestedListPaddingLeft: 0.75em !default;
+$menuLabelFontSize: 0.75em !default;
+$menuLabelLetterSpacing: 0.1em !default;
+$menuLabelSpacing: 1em !default;

@@ -1,0 +1,15 @@
+.Box {
+  color: $boxColor;
+  background-color: $boxBgColor;
+  box-shadow: $boxShadow;
+}
+
+a.Box {
+  &:hover,
+  &:focus {
+    box-shadow: $boxLinkHoverShadow;
+  }
+  &:active {
+    box-shadow: $boxLinkActiveShadow;
+  }
+}

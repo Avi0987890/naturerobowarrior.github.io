@@ -1,0 +1,44 @@
+@mixin control {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  border: $controlBorderWidth solid transparent;
+  border-radius: $controlRadius;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: $fontSize;
+  height: $controlHeight;
+  justify-content: flex-start;
+  line-height: $controlLineHeight;
+  padding-bottom: $controlPaddingVertical;
+  padding-left: $controlPaddingHorizontal;
+  padding-right: $controlPaddingHorizontal;
+  padding-top: $controlPaddingVertical;
+  position: relative;
+  vertical-align: top;
+
+  // States
+  &:focus,
+  &--focused,
+  &:active,
+  &--active {
+    outline: none;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+}
+
+@mixin controlSmall {
+  border-radius: $controlRadiusSm;
+  font-size: $fontSizeSm;
+}
+
+@mixin controlMedium {
+  font-size: $fontSizeMd;
+}
+
+@mixin controlLarge {
+  font-size: $fontSizeLg;
+}

@@ -1,0 +1,30 @@
+$errorOffsetAmt: 10%;
+
+.NotFoundPage {
+  &__Error {
+    color: inherit;
+    position: relative;
+    z-index: 1;
+
+    &::before,
+    &::after {
+      content: attr(data-error);
+      display: block;
+      position: absolute;
+      opacity: 50%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    &::before {
+      transform: translate(-$errorOffsetAmt, -$errorOffsetAmt);
+      color: $primaryColor;
+    }
+
+    &::after {
+      transform: translate($errorOffsetAmt, $errorOffsetAmt);
+      color: $secondaryColor;
+    }
+  }
+}

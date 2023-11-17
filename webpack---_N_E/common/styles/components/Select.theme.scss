@@ -1,0 +1,55 @@
+@mixin selectColor ($name, $color) {
+  &--#{$name} {
+    &:not(:hover)::after {
+      border-color: $color;
+    }
+    select {
+      border-color: $color;
+      &:focus,
+      &--focused,
+      &:active,
+      &--active {
+        border-color: $color;
+        box-shadow: $inputFocusBoxShadowSize rgba($color, 0.25);
+      }
+    }
+  }
+}
+
+.Select {
+  &:not(.Select--loading) {
+    &::after {
+      @include arrow;
+      border-color: $inputArrowColor;
+    }
+  }
+  select {
+    @include inputTheme;
+    &[disabled]:hover,
+    fieldset[disabled] &:hover {
+      border-color: $inputDisabledBorderColor;
+    }
+  }
+  &:not(.Select--loading):hover {
+    &::after {
+      border-color: $inputHoverBorderColor;
+    }  
+  }
+
+  // Colors
+  @include selectColor('success', $successColor);
+  @include selectColor('warning', $warningColor);
+  @include selectColor('error', $errorColor);
+
+  // Modifiers
+  &--disabled {
+    &::after {
+      border-color: $inputDisabledColor;
+    }
+  }
+  &--loading {
+    &::after {
+      @include loader;
+    }
+  }
+}

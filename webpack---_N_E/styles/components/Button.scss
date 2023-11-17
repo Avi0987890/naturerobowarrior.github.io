@@ -1,0 +1,32 @@
+.Button {
+  &--primary {
+    padding-left: $marginMd2;
+    padding-right: $marginMd2;
+  }
+
+  &--text {
+    padding: 0;
+    height: 1.3em;
+    position: relative;
+    display: inline-block;
+    margin-top: -2px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      bottom: -2px;
+      right: 0;
+      left: 0;
+    }
+
+    &:before {
+      z-index: 0;
+    }
+
+    &::after {
+      z-index: 1
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.PurchaseTokensPage {
+  &__Option {
+    background: $darkBgColor;
+    border-color: rgba($primaryColor, 0.5);
+    transition: all 200ms ease;
+
+    p:nth-of-type(2) {
+      color: $primaryColor;
+    }
+
+    img {
+      transition: all 200ms ease;
+    }
+
+    &:hover {
+      border-color: $primaryColor;
+
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

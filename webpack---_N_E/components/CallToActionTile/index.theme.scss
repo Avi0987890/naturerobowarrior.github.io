@@ -1,0 +1,27 @@
+.CallToActionTile {
+  transition: 200ms ease;
+
+  &__Label {
+    color: $fontColor;
+    background: rgba($primaryColor, 0.85);
+    text-shadow: 0 0 1px rgba($ioDarkBlue, 0.5);
+    backdrop-filter: blur(2px);
+  }
+
+  .IoGameTile {
+    .GameTile__Preview {
+      &::before {
+        height: 100%;
+        box-shadow: 0 0 0 0px rgba($ioCyan, 0.5) inset;
+      }
+    }
+    &:hover {
+      .GameTile__Preview {
+        &::before {
+          height: 100%;
+          box-shadow: 0 0 0 2px rgba($ioCyan, 0.85) inset;
+        }
+      }
+    }
+  }
+}

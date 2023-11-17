@@ -1,0 +1,93 @@
+.GameTile {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  width: $gameTileWidth;
+  border-radius: $gameTileBorderRadius;
+  overflow: hidden;
+  align-self: flex-start;
+  user-select: none;
+
+  &__Preview {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    word-spacing: 0;
+    pointer-events: none;
+  }
+
+  &__Description {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__Status {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+  }
+
+  // Sizes
+  &--medium {
+    width: calc(#{$gameTileWidth * 2} + #{$spacing});
+    font-size: $fontSizeMd;
+  }
+  &--large {
+    width: calc(#{$gameTileWidth * 3} + #{$spacing * 2});
+    font-size: $fontSizeLg;
+  }
+  &--fullWidth {
+    width: 100% !important;
+  }
+  &--stretch {
+    height: 100%;
+  }
+
+  // Modifiers
+  &--disabled {
+    cursor: not-allowed;
+    
+    .GameTileThumbnail,
+    .GameTileVideoThumbnail {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.GameTileStatus,
+.GameTileDescription {
+  padding: $gameTilePadding;
+}
+
+.GameTileVideoThumbnail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  video {
+    background-color: transparent;
+  }
+
+  &__Poster {
+    pointer-events: none;
+    transition: none;
+    position: relative;
+    z-index: 0;
+  }
+
+  &__Video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+}

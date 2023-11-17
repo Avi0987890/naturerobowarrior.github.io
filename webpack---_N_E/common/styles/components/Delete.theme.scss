@@ -1,0 +1,14 @@
+.Delete {
+  background-color: rgba($themeInverted, 0.4);
+  &:hover {
+    background-color: rgba($themeInverted, 0.85);
+  }
+  &:active {
+    background-color: rgba($themeInverted, 1);
+  }
+
+  &::before,
+  &::after {
+    background-color: $theme;
+  }
+}

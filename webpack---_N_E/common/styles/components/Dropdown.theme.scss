@@ -1,0 +1,32 @@
+.Dropdown {
+  &__Content {
+    background-color: $dropdownContentBgColor;
+    box-shadow: $dropdownContentShadow;
+  }
+
+  &__Content {
+    background-color: $dropdownContentBgColor;
+    box-shadow: $dropdownContentShadow;
+    padding-bottom: $dropdownContentPaddingBottom;
+    padding-top: $dropdownContentPaddingTop;
+  }
+}
+
+.DropdownItem {
+  color: $dropdownItemColor;
+}
+
+a.DropdownItem {
+  &:hover {
+    background-color: $dropdownItemHoverBgColor;
+    color: $dropdownItemHoverColor;
+  }
+  &--active {
+    background-color: $dropdownItemActiveBgColor !important;
+    color: $dropdownItemActiveColor !important;
+  }
+}
+
+.DropdownDivider {
+  background-color: $dropdownDividerBgColor;
+}

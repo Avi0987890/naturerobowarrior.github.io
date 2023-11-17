@@ -1,0 +1,24 @@
+.GamePlayer {
+  background-color: $gameObjectBgColor;
+
+  &__PreviewOverlay {
+    &::after {
+      background-color: $gameObjectPreviewColor;
+      mix-blend-mode: $gameObjectPreviewBlendMode;
+    }
+
+    + .GamePlayer__Overlay {
+      backdrop-filter: $gameObjectPreviewFilter;
+    }
+  }
+
+  &__Incompatible {
+    background-color: $gameObjectErrorColor;
+    color: $gameObjectErrorColorInverted;
+  }
+
+  &__Loader {
+    font-size: 500%;
+    @include loader($loaderColor);
+  }
+}

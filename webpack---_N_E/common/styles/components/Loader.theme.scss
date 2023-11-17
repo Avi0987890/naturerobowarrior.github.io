@@ -1,0 +1,15 @@
+.Loader {
+  &::after {
+    @include loader($loaderColor);
+  }
+  &--large {
+    &::after {
+      font-size: 500%;
+    }
+  }
+}
+
+.LoaderFill {
+  background: $loaderFillBg;
+  backdrop-filter: $loaderFillBgFilter;
+}

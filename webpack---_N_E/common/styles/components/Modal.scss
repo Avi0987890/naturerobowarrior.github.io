@@ -1,0 +1,121 @@
+.Modal {
+  @include overlay;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  z-index: $fixedZ + 3;
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.ModalCard {
+  display: flex;
+  flex-direction: column;
+  margin: 0 $modalContentMargin;
+  max-height: calc(100vh - #{$modalContentMargin * 2});
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  // Responsiveness
+  @include isTabletOrGreater {
+    margin: 0 auto;
+    width: $modalContentWidth;
+  }
+
+  &__Head,
+  &__Foot {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    padding: $modalCardPadding;
+    position: relative;
+  }
+
+  &__Head {
+    border-bottom: $modalCardBorder;
+    border-top-left-radius: $modalCardRadius;
+    border-top-right-radius: $modalCardRadius;
+  }
+
+  &__Title {
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: $modalCardTitleFontSize;
+    line-height: $modalCardTitleLineHeight;
+  }
+
+  &__Foot {
+    border-bottom-left-radius: $modalCardRadius;
+    border-bottom-right-radius: $modalCardRadius;
+    border-top: $modalCardBorder;
+    .Button {
+      &:not(:last-child) {
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  &__Body {
+    @include overflowTouch;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
+    padding: $modalCardPadding;
+
+    &:only-child {
+      border-radius: $modalCardRadius;
+    }
+  }
+}
+
+.Modals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: $fixedZ + 3;
+
+  &__Bg {
+    @include overlay;
+    position: absolute;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+  &__Content {
+    margin: 0 $modalContentMargin;
+    max-height: calc(100vh - #{$modalContentMargin * 2});
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+
+    // Responsiveness
+    @include isTabletOrGreater {
+      margin: 0 auto;
+      width: $modalContentWidth;
+    }
+  }
+
+  > .Delete {
+    position: absolute;
+    top: $modalCloseSpacing * 0.5;
+    right: $modalCloseSpacing * 0.5;
+    z-index: 3;
+
+    @include isDesktop {
+      top: $modalCloseSpacing;
+      right: $modalCloseSpacing;
+    }
+  }
+}

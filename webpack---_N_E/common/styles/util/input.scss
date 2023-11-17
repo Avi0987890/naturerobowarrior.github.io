@@ -1,0 +1,36 @@
+@mixin input {
+  @include control;
+}
+
+@mixin inputTheme {
+  background-color: $inputBgColor;
+  border-color: $inputBorderColor;
+  color: $inputColor;
+  @include placeholder {
+    color: $inputPlaceholderColor;
+  }
+
+  &:hover,
+  &--hovered {
+    border-color: $inputHoverBorderColor;
+  }
+
+  &:focus,
+  &--focused,
+  &:active,
+  &--active {
+    border-color: $inputFocusBorderColor;
+    box-shadow: $inputFocusBoxShadowSize rgba($inputFocusBoxShadowColor, 0.25);
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: $inputDisabledBgColor;
+    border-color: $inputDisabledBorderColor;
+    box-shadow: none;
+    color: $inputDisabledColor;
+    @include placeholder {
+      color: $inputDisabledPlaceholderColor;
+    }
+  }
+}

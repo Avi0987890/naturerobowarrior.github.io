@@ -1,0 +1,21 @@
+.Control {
+  // Modifiers
+  &--iconsLeft,
+  &--iconsRight {
+    .Input,
+    .Select {
+      &:focus ~ .Icon {
+        color: $inputIconActiveColor;
+      }
+    }
+    .Icon {
+      color: $inputIconColor;
+    }
+  }
+
+  &--loading {
+    &::after {
+      @include loader;
+    }
+  }
+}

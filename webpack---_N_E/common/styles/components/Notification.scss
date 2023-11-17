@@ -1,0 +1,56 @@
+.Notification {
+  position: relative;
+  border-radius: $notificationRadius;
+  padding: $notificationPadding;
+
+  a:not(.button):not(.dropdown-item) {
+    color: currentColor;
+    text-decoration: underline;
+  }
+  strong {
+    color: currentColor;
+  }
+
+  .Delete {
+    top: 0.5rem;
+    right: 0.5rem;
+    position: absolute;
+  }
+}
+
+.Notifications {
+  position: fixed;
+  z-index: $fixedZ + 2;
+  pointer-events: none;
+  top: $spacing;
+  display: flex;
+  left: $spacing;
+
+  .Notification {
+    cursor: pointer;
+    user-select: none;
+    pointer-events: auto;
+    margin-bottom: $spacing * 0.5;
+  }
+
+  &--topRight {
+    left: auto;
+    right: $spacing;
+  }
+  &--center {
+    right: $spacing;
+    .Notification {
+      margin: 0 auto;
+    }
+  }
+
+  @include isMobile {
+    left: $spacing;
+    right: $spacing;
+
+    .TransitionList,
+    .Notification {
+      width: 100%;
+    }
+  }
+}

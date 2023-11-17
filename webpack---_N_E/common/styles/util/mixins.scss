@@ -1,0 +1,177 @@
+@import '@/node_modules/include-media/dist/_include-media.scss';
+
+@mixin isMobile {
+  @include media('<=tablet') {
+    @content;
+  }
+}
+
+@mixin isTabletOrGreater {
+  @include media('>phone') {
+    @content;
+  }
+}
+
+@mixin onlyTablet {
+  @include media('>phone', '<=tablet') {
+    @content;
+  }
+}
+
+@mixin isDesktop {
+  @include media('>tablet') {
+    @content;
+  }
+}
+
+@mixin isLandscape {
+  $maxWidth: map-get($breakpoints, 'widescreen');
+  @media (max-device-width: #{$maxWidth}) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin isPortrait {
+  $maxWidth: map-get($breakpoints, 'widescreen');
+  @media (max-device-width: #{$maxWidth}) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin loader ($color: false) {
+  @keyframes spinAround {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  
+  $color: if($color, $color, $loaderColor);
+  animation: spinAround 500ms infinite linear;
+  border-radius: $radiusRounded;
+  border: 0.125em solid $color;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: '';
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+}
+
+@mixin arrow ($color: transparent) {
+  border: 3px solid $color;
+  border-radius: 2px;
+  border-right: 0;
+  border-top: 0;
+  content: ' ';
+  display: block;
+  height: 0.625em;
+  margin-top: -0.625em;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  width: 0.625em;
+}
+
+@mixin resultStates { 
+  &--success {
+    color: $successColor;
+  }
+  &--warning {
+    color: $warningColor;
+  }
+  &--error {
+    color: $errorColor;
+  }
+}
+
+@mixin fontSizes {
+  &--small {
+    font-size: $fontSizeSm;
+  }
+  &--medium {
+    font-size: $fontSizeMd;
+  }
+  &--large {
+    font-size: $fontSizeLg;
+  }
+}
+
+@mixin placeholder {
+  $placeholders: ':-moz' ':-webkit-input' '-moz' '-ms-input';
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+@mixin center ($width, $height: 0) {
+  position: absolute;
+  @if ($height != 0) {
+    left: calc(50% - (#{$width} * 0.5));
+    top: calc(50% - (#{$height} * 0.5));
+  } @else {
+    left: calc(50% - (#{$width} * 0.5));
+    top: calc(50% - (#{$width} * 0.5));
+  }
+}
+
+@mixin overflowTouch ($x: false, $y: false) {
+  @if ($x) {
+    overflow: #{$x $y};
+  }
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin flexGap ($name, $amt) {
+  &--gap#{$name} {
+    &.Flex--container {
+      margin-left: -($spacing * $amt) * 0.5;
+      margin-right: -($spacing * $amt) * 0.5;
+      margin-top: -($spacing * $amt) * 0.5;
+      
+      &:last-child {
+        margin-bottom: -($spacing * $amt) * 0.5;
+      }
+      &:not(:last-child) {
+        margin-bottom: ($spacing * $amt) * 0.5;
+      }
+    }
+
+    > * {
+      margin: ($spacing * $amt) * 0.5;
+    }
+  }
+}
+
+@mixin customFlexGap ($amt) {
+  &.Flex--container {
+    margin-left: -($amt) * 0.5;
+    margin-right: -($amt) * 0.5;
+    margin-top: -($amt) * 0.5;
+    
+    &:last-child {
+      margin-bottom: -($amt) * 0.5;
+    }
+    &:not(:last-child) {
+      margin-bottom: $amt * 0.5;
+    }
+  }
+
+  > * {
+    margin: $amt * 0.5;
+  }
+}

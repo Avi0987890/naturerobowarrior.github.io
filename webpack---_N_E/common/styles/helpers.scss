@@ -1,0 +1,192 @@
+@use "sass:meta";
+
+// Selection
+
+.--disableInput {
+  pointer-events: none;
+}
+
+.--noSelect {
+  user-select: none;
+}
+
+// Containers
+
+.--wide {
+  width: 100%;
+}
+
+.--tall {
+  height: 100%;
+}
+
+.--relative {
+  position: relative;
+}
+
+// Pins
+
+.--pin {
+  position: absolute;
+  z-index: 1;
+}
+.--pinFixed {
+  position: fixed;
+  z-index: $fixedZ;
+}
+.--pinTop {
+  top: 0;
+}
+.--pinLeft {
+  left: 0;
+}
+.--pinBottom {
+  bottom: 0;
+}
+.--pinRight {
+  right: 0;
+}
+.--pinCenterX {
+  left: 50%;
+}
+.--pinCenterY {
+  top: 50%;
+}
+
+// Responsive helpers
+
+@mixin responsiveHelpers ($prefix, $display) {
+  .--#{$prefix} {
+    display: $display;
+  }
+  .--#{$prefix}Mobile {
+    @include isMobile {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}Tablet {
+    @include isTabletOrGreater {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}OnlyTablet {
+    @include onlyTablet {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}Desktop {
+    @include isDesktop {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}Widescreen {
+    @include media('>=widescreen') {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}Highdef {
+    @include media('>=highdef') {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}Ultrahd {
+    @include media('>=ultrahd') {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}Landscape {
+    @include isLandscape {
+      display: $display !important;
+    }
+  }
+  .--#{$prefix}Portrait {
+    @include isPortrait {
+      display: $display !important;
+    }
+  }
+}
+
+@include responsiveHelpers('hide', none);
+@include responsiveHelpers('flex', flex);
+@include responsiveHelpers('block', block);
+@include responsiveHelpers('inline', inline);
+@include responsiveHelpers('inlineFlex', inline-flex);
+
+//BEM spacing helpers
+
+$marginNone: 0rem !default;
+$marginSmSpacing: ($marginNone, $marginSm0, $marginSm1, $marginSm2, $marginSm3);
+$marginMdSpacing: ($marginNone, $marginMd0, $marginMd1, $marginMd2, $marginMd3);
+$emNone: 0em !default;
+$emSmSpacing: ($emNone, $emSm0, $emSm1, $emSm2, $emSm2 );
+$emMdSpacing: ($emNone, $emMd0, $emMd1, $emMd2, $emMd2 );
+@mixin spacingHelper ($prefix, $property, $size, $spacingValues) {
+  @each $value in $spacingValues {
+    $i: index($spacingValues, $value) - 1;
+    .--#{$prefix}#{$size}#{$i} {
+      #{$property}: #{$value};
+    }
+    .--#{$prefix}#{$size}#{$i}__x {
+      #{$property}-left: #{$value};
+      #{$property}-right: #{$value};
+    }
+    .--#{$prefix}#{$size}#{$i}__y {
+      #{$property}-top: #{$value};
+      #{$property}-bottom: #{$value};
+    }
+    .--#{$prefix}#{$size}#{$i}__l {
+      #{$property}-left: #{$value};
+    }
+    .--#{$prefix}#{$size}#{$i}__r {
+      #{$property}-right: #{$value};
+    }
+    .--#{$prefix}#{$size}#{$i}__b {
+      #{$property}-bottom: #{$value};
+    }
+    .--#{$prefix}#{$size}#{$i}__t {
+      #{$property}-top: #{$value};
+    }
+  }
+}
+@include spacingHelper('mar', 'margin','Sm', $marginSmSpacing);
+@include spacingHelper('mar', 'margin','Md', $marginMdSpacing);
+@include spacingHelper('pad', 'padding','Sm', $marginSmSpacing);
+@include spacingHelper('pad', 'padding','Md', $marginMdSpacing);
+@include spacingHelper('marEm', 'margin','Sm', $emSmSpacing);
+@include spacingHelper('marEm', 'margin','Md', $emMdSpacing);
+@include spacingHelper('padEm', 'padding', 'Sm', $emSmSpacing);
+@include spacingHelper('padEm', 'padding', 'Md', $emMdSpacing);
+
+// Typography
+
+.--textCenter {
+  text-align: center;
+}
+
+.--textRight {
+  text-align: right;
+}
+
+.--textLeft {
+  text-align: left;
+}
+
+// Scrolling
+
+.--scrollY {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.--scrollX {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.--scroll {
+  overflow: auto;
+}
+
+.--scrollNone {
+  overflow: hidden;
+}

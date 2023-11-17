@@ -1,0 +1,115 @@
+// Links
+$link: $primaryColor;
+$linkHover: $primaryColor;
+$linkFocus: $primaryColor;
+$linkActive: darken($primaryColor, 5%);
+
+// Inputs
+$inputIconColor: $greyLight !default;
+$inputIconActiveColor: $grey !default;
+$inputShadow: inset 0 0.0625em 0.125em rgba($themeInverted, 0.05) !default;
+$inputColor: $strongColor !default;
+$inputBgColor: $theme !default;
+$inputPlaceholderColor: rgba($inputColor, 0.3) !default;
+$inputArrowColor: $greyLight !default;
+
+$inputBorderColor: $borderColor !default;
+$inputHoverBorderColor: $borderColorDark !default;
+$inputFocusBorderColor: $primaryColor !default;
+$inputFocusBoxShadowColor: $primaryColor !default;
+
+$inputDisabledColor: $lightColor !default;
+$inputDisabledPlaceholderColor: rgba($inputDisabledColor, 0.3) !default;
+$inputDisabledBgColor: $bgColor !default;
+$inputDisabledBorderColor: $bgColor !default;
+
+// Buttons
+$buttonColor: $strongColor !default;
+$buttonBgColor: $theme !default;
+
+$buttonBorderColor: $borderColor !default;
+
+$buttonHoverColor: $linkHover !default;
+$buttonHoverBorderColor: $linkHover !default;
+
+$buttonFocusColor: $linkFocus !default;
+$buttonFocusBorderColor: $linkFocus !default;
+$buttonFocusBoxShadowSize: 0 0 0 0.125em !default;
+$buttonFocusBoxShadowColor: rgba($link, 0.25) !default;
+
+$buttonActiveColor: $linkActive !default;
+$buttonActiveBorderColor: $linkActive !default;
+
+$buttonTextColor: $fontColor !default;
+$buttonTextHoverBgColor: $bgColor !default;
+$buttonTextHoverColor: $strongColor !default;
+
+$buttonDisabledBgColor: $theme !default;
+$buttonDisabledBorderColor: $borderColor !default;
+$buttonDisabledShadow: none !default;
+$buttonDisabledOpacity: 0.5 !default;
+
+$buttonStaticColor: $lightColor !default;
+$buttonStaticBgColor: $bgColor !default;
+$buttonStaticBorderColor: $borderColor !default;
+
+// Misc.
+$loaderColor: $greyLighter !default;
+$shadow: 0 0.5em 1em -0.125em rgba($themeInverted, 0.1), 0 0px 0 1px rgba($themeInverted, 0.02) !default;
+$hrColor: $borderColorLight !default;
+$autocompleteInputShadow: false !default;
+
+// Box
+$boxColor: $fontColor !default;
+$boxBgColor: $theme !default;
+$boxShadow: $shadow !default;
+$boxLinkHoverShadow: 0 0.5em 1em -0.125em rgba($themeInverted, 0.1), 0 0 0 1px $primaryColor !default;
+$boxLinkActiveShadow: inset 0 1px 2px rgba($themeInverted, 0.2), 0 0 0 1px $primaryColor !default;
+
+// Game object
+$gameObjectBgColor: $bgColor !default;
+$gameObjectPreviewFilter: blur(8px) saturate(200%) !default;
+$gameObjectPreviewColor: rgba($white, 0.5) !default;
+$gameObjectPreviewBlendMode: screen !default;
+$gameObjectErrorColor: $errorColor !default;
+$gameObjectErrorColorInverted: $errorColorInverted !default;
+
+//Notification
+$notificationColor: $primaryColorInverted !default;
+$notificationBgColor: $primaryColor !default;
+
+//Dropdowns
+$dropdownContentBgColor: $theme !default;
+$dropdownContentArrow: $link !default;
+$dropdownContentShadow: $shadow !default;
+$dropdownItemColor: $fontColor !default;
+$dropdownItemHoverColor: $themeInverted !default;
+$dropdownItemHoverBgColor: $bgColor !default;
+$dropdownItemActiveColor: $primaryColorInverted !default;
+$dropdownItemActiveBgColor: $primaryColor !default;
+$dropdownDividerBgColor: $borderColorLight !default;
+
+// Game Tile
+$gameTileTextColor: $white !default;
+
+// Modal
+$modalBgColor: rgba(if($isDark, $theme, $themeInverted), 0.35) !default;
+$modalBgFilter: none !default;
+$modalCardHeadBgColor: $bgColor !default;
+$modalCardBorderColor: $borderColor !default;
+$modalCardTitleColor: $strongColor !default;
+$modalCardBodyBgColor: $theme !default;
+
+// Loader
+$loaderColor: false !default;
+$loaderFillBg: transparent !default;
+$loaderFillBgFilter: none !default;
+
+// Menu
+$menuItemColor: $fontColor !default;
+$menuItemHoverColor: $strongColor !default;
+$menuItemHoverBgColor: $bgColor !default;
+$menuItemActiveColor: $primaryColorInverted !default;
+$menuItemActiveBgColor: $primaryColor !default;
+$menuListBorderLeft: 1px solid $borderColor !default;
+$menuLabelColor: $lightColor !default;

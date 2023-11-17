@@ -1,0 +1,7 @@
+.Box {
+  padding: $marginMd1;
+
+  @include isTabletOrGreater {
+    padding: $marginMd2;
+  }
+}

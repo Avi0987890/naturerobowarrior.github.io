@@ -1,0 +1,27 @@
+@import '@lib/styles/theme';
+
+&.Page {
+  color: $fontColor;
+  background-color: $theme;
+}
+
+// Common component overrides
+@import '@/styles/components/Button.theme.scss';
+@import '@/styles/components/RouterLink.theme.scss';
+
+// Custom components
+@import '@/components/AppFooter/index.theme.scss';  
+@import '@/components/AppHeader/index.theme.scss';
+@import '@/components/CallToActionTile/index.theme.scss';
+@import '@/components/Carousel/index.theme.scss';
+@import '@/components/GameTag/index.theme.scss';  
+@import '@/components/IoGameTile/index.theme.scss';  
+@import '@/components/MenuList/index.theme.scss';  
+
+// Layouts
+@import '@/layouts/GameLayout/index.theme.scss';  
+
+// Pages
+@import '@/pages/[game]/index.theme.scss';  
+@import '@/pages/404.theme.scss';  
+@import '@/pages/developer/purchase-tokens/index.theme.scss';  

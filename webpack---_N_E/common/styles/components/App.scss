@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  color: inherit;
+
+  &__Header {
+    color: inherit;
+  }
+
+  &__Main {
+    flex: 1;
+  }
+
+  &__Footer {
+    color: inherit;
+  }
+}

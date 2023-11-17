@@ -1,0 +1,14 @@
+.Spacer {
+  pointer-events: none;
+  visibility: hidden;
+
+  // Modifiers
+  &--wide {
+    width: 100%;
+    height: auto;
+  }
+  &--tall {
+    height: 100%;
+    width: auto;
+  }
+}

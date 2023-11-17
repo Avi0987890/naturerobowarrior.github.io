@@ -1,0 +1,188 @@
+@mixin buttonSmall {
+  &:not(.Button--rounded) {
+    border-radius: $radiusSm;
+  }
+  font-size: $fontSizeSm;
+}
+@mixin buttonNormal {
+  font-size: $fontSize;
+}
+@mixin buttonMedium {
+  font-size: $fontSizeMd;
+}
+@mixin buttonLarge {
+  font-size: $fontSizeLg;
+}
+
+.Button {
+  @include control;
+  user-select: none;
+  cursor: pointer;
+  @if $buttonFamily {
+    font-family: $buttonFamily;
+  }
+  justify-content: center;
+  padding-bottom: $buttonPaddingVertical;
+  padding-left: $buttonPaddingHorizontal;
+  padding-right: $buttonPaddingHorizontal;
+  padding-top: $buttonPaddingVertical;
+  text-align: center;
+  white-space: nowrap;
+
+  .Icon {
+    &,
+    &--small,
+    &--medium,
+    &--large {
+      height: 1.5em;
+      width: 1.5em;
+    }
+    &:first-child:not(:last-child) {
+      margin-left: calc(#{-1 * 0.5 * $buttonPaddingHorizontal} - #{$buttonBorderWidth});
+    }
+    &:last-child:not(:first-child) {
+      margin-left: $buttonPaddingHorizontal * 0.25;
+    }
+    &:first-child:last-child {
+      margin-left: calc(#{-1 * 0.5 * $buttonPaddingHorizontal} - #{$buttonBorderWidth});
+      margin-right: calc(#{-1 * 0.5 * $buttonPaddingHorizontal} - #{$buttonBorderWidth});
+    }  
+  }
+  
+  // Sizes
+  &--small {
+    @include buttonSmall;
+  }
+  &--normal {
+    @include buttonNormal;
+  }
+  &--medium {
+    @include buttonMedium;
+  }
+  &--large {
+    @include buttonLarge;
+  }  
+  
+  // Modifiers
+  &--fullWidth {
+    display: flex;
+    width: 100%;
+  }
+  &--loading {
+    color: transparent !important;
+    pointer-events: none;
+    &::after {
+      @include center(1.2em);
+      position: absolute !important;
+    }
+  }
+  &--rounded {
+    border-radius: $radiusRounded;
+    padding-left: calc(#{$buttonPaddingHorizontal} + 0.25em);
+    padding-right: calc(#{$buttonPaddingHorizontal} + 0.25em);
+  }
+}
+
+.Buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .Button,
+  .--buttonWrapper {
+    margin-bottom: 0.5rem;
+    &:not(:last-child):not(.Button--fullWidth) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .--buttonWrapper {
+    .Button {
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: -0.5rem;
+  }
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }  
+  
+  // Sizes
+  &--small {
+    .Button:not(.Button--normal):not(.Button--medium):not(.Button--large) {
+      @include buttonSmall;
+    }
+  }
+  &--medium {
+    .Button:not(.Button--small):not(.Button--normal):not(.Button--large) {
+      @include buttonMedium;
+    }
+  }
+  &--large {
+    .Button:not(.Button--small):not(.Button--normal):not(.Button--medium) {
+      @include buttonLarge;
+    }
+  }
+
+  // Modifiers
+  &--addons {
+    .Button {
+      &:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+      &:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        margin-left: -1px;
+      }
+      &:last-child {
+        margin-left: 0px;
+      }
+      &:hover,
+      &--hovered {
+        z-index: 2;
+      }
+      &:focus,
+      &--focused,
+      &:active,
+      &--active,
+      &--selected {
+        z-index: 3;
+        &:hover {
+          z-index: 4;
+        }
+      }
+      &--expanded {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+  }
+  &--centered {
+    justify-content: center;
+    &:not(.Buttons--addons) {
+      .Button:not(.Button--fullWidth) {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+  &--right {
+    justify-content: flex-end;
+    &:not(.Buttons--addons) {
+      .Button {
+        margin-right: 0;
+        &:not(:last-child):not(.Button--fullWidth) {
+          margin-right: 0;
+        }
+        &:not(:first-child):not(.Button--fullWidth) {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}

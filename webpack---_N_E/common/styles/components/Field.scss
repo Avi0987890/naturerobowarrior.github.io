@@ -1,0 +1,175 @@
+$labelWeight: $weightMedium !default;
+
+.Field {
+  &:not(:last-child) {
+    margin-bottom: $marginSm3;
+  }  
+  
+  // Modifiers
+  &--addons {
+    display: flex;
+    justify-content: flex-start;
+    .Control {
+      &:not(:first-child):not(:last-child) {
+        .Button,
+        .Input,
+        .Select select {
+          border-radius: 0;
+        }
+      }
+      &:first-child:not(:only-child) {
+        .Button,
+        .Input,
+        .Select select {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+      &:last-child:not(:only-child) {
+        .Button,
+        .Input,
+        .Select select {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+      .Button,
+      .Input,
+      .Select select {
+        &:hover,
+        &--hovered {
+          z-index: 2;
+        }
+        &:focus,
+        &--focused,
+        &:active,
+        &--active {
+          z-index: 3;
+          &:hover {
+            z-index: 4;
+          }
+        }
+      }
+      &--expanded {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+    &--addonsCentered {
+      justify-content: center;
+    }
+    &--addonsRight {
+      justify-content: flex-end;
+    }
+    &--addonsFullwidth {
+      .Control {
+        flex-grow: 1;
+        flex-shrink: 0;
+      }
+    }
+  }
+  &--grouped {
+    display: flex;
+    justify-content: flex-start;
+    & > .Control {
+      flex-shrink: 0;
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-left: $marginSm3;
+      }
+      &--expanded {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+    &--groupedCentered {
+      justify-content: center;
+    }
+    &--groupedRight {
+      justify-content: flex-end;
+    }
+    &--groupedMultiline {
+      flex-wrap: wrap;
+      & > .Control {
+        &:last-child,
+        &:not(:last-child) {
+          margin-bottom: $marginSm3;
+        }
+      }
+      &:last-child {
+        margin-bottom: -$marginSm3;
+      }
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &--horizontal {
+    @include isTabletOrGreater {
+      display: flex;
+    }
+  }
+}
+
+.FieldLabel {
+  display: block;
+  font-size: $fontSize;
+  font-weight: $labelWeight;
+
+  &:not(:last-child) {
+    margin-bottom: $emSm2;
+  }  
+
+  // Sizes
+  @include fontSizes;
+}
+
+.FieldHelp {
+  display: block;
+  font-size: $fontSizeSm;
+  margin-top: $marginSm1;
+}
+
+.FieldBodyLabel {
+  .FieldLabel {
+    font-size: inherit;
+  }
+  @include isMobile {
+    margin-bottom: $marginSm2;
+  }
+  @include isTabletOrGreater {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-left: $emMd1;
+    text-align: right;
+    padding-top: $emSm1;
+  }
+
+  // Sizes
+  @include fontSizes;
+}
+
+.FieldBody {
+  .Field .Field {
+    margin-bottom: 0;
+  }
+  @include isTabletOrGreater {
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 5;
+    flex-shrink: 1;
+    .Field {
+      margin-bottom: 0;
+    }
+    & > .Field {
+      flex-shrink: 1;
+      &:not(.Field--narrow) {
+        flex-grow: 1;
+      }
+      &:not(:last-child) {
+        margin-left: $marginSm3;
+      }
+    }
+  }
+}

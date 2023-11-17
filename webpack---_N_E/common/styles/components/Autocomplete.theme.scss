@@ -1,0 +1,38 @@
+.Autocomplete {
+  &__Content {
+    background-color: $dropdownContentBgColor;
+    box-shadow: $dropdownContentShadow;
+  }
+
+  &__Content {
+    background-color: $dropdownContentBgColor;
+    box-shadow: $dropdownContentShadow;
+    padding-bottom: $dropdownContentPaddingBottom;
+    padding-top: $dropdownContentPaddingTop;
+  }
+
+  @if $autocompleteInputShadow {
+    .Input {
+      box-shadow: $autocompleteInputShadow;
+    }
+  }
+}
+
+.AutocompleteItem {
+  color: $dropdownItemColor;
+}
+
+a.AutocompleteItem {
+  &:hover {
+    background-color: $dropdownItemHoverBgColor;
+    color: $dropdownItemHoverColor;
+  }
+  &--active {
+    background-color: $dropdownItemActiveBgColor !important;
+    color: $dropdownItemActiveColor !important;
+  }
+}
+
+.AutocompleteDivider {
+  background-color: $dropdownDividerBgColor;
+}

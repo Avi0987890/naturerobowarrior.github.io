@@ -1,0 +1,84 @@
+@keyframes ratingsGlow {
+  0% {
+    box-shadow: 0 0 3px 1px rgba($ioOrange, 0.5);
+  }
+
+  45% {
+    box-shadow: 0 0 10px 1px rgba($ioOrange, 1);
+  }
+
+  55% {
+    box-shadow: 0 0 10px 1px rgba($ioOrange, 1);
+  }
+
+  100% {
+    box-shadow: 0 0 3px 1px rgba($ioOrange, 0.5);
+  }
+}
+
+.PlayPage {
+  &__GamePlayer {
+    background-color: $bgColor;
+
+    &__Controls {
+      background-color: $darkBgColor;
+
+      &__Icon {
+        color: $lightColor;
+
+        @include isDesktop {
+          &:hover,
+          &:active {
+            color: $themeInverted;
+          }
+        }
+
+        &--picked {
+          color: $themeInverted;
+        }
+      }
+
+      &__Rating {
+        span {
+          &:last-child {
+            background-color: $ioBlue;
+          }
+        }
+
+        &--good {
+          span {
+            &:last-child {
+              background-color: $ioOrange;
+              animation-duration: 1.5s;
+              animation-name: ratingsGlow;
+              animation-iteration-count: infinite;
+              animation-timing-function: linear;
+              text-shadow: 0 1px 3px darken($ioOrange, 10);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__Description {
+    line-height: 1.6;
+
+    strong {
+      font-weight: bold;
+    }
+
+    &__ReadMore {
+      border-top-color: $primaryColor;
+
+      &::before {
+        background: linear-gradient(to top, rgba($boxBgColor, 1), rgba($boxBgColor, 0.65), rgba($boxBgColor, 0));
+      }
+
+      span {
+        background-color: $primaryColor;
+        text-shadow: 0 0 1px rgba($black, 0.5);
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.Icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: $iconSize;
+  width: $iconSize;
+  position: relative;
+
+  // Sizes
+  &--small {
+    font-size: $fontSizeSm;
+    height: $iconSizeSmall;
+    width: $iconSizeSmall;
+  }
+  &--medium {
+    font-size: $fontSizeMd;
+    height: $iconSizeMedium;
+    width: $iconSizeMedium;
+  }
+  &--large {
+    font-size: $fontSizeLg;
+    height: $iconSizeLarge;
+    width: $iconSizeLarge;
+  }
+
+  svg,
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.IconWithText {
+  align-items: flex-start;
+  color: inherit;
+  display: inline-flex;
+  flex-wrap: wrap;
+  line-height: $iconSize;
+  vertical-align: top;
+
+  .Icon {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &:not(:last-child) {
+      margin-right: $iconTextSpacing;
+    }
+    &:not(:first-child) {
+      margin-left: $iconTextSpacing;
+    }
+  }
+}
+
+div.IconText {
+  display: flex;
+}

@@ -1,0 +1,52 @@
+.Carousel {
+  &__Button {
+    .Button {
+      font-size: 1rem;
+
+      transition-property: box-shadow, transform, opacity;
+      transition-timing-function: ease;
+      transition-duration: 1s;
+
+      @include isDesktop {
+        &:hover {
+          transition-property: box-shadow, transform, opacity;
+          transition-timing-function: ease;
+          transition-duration: 200ms;
+        }
+      }
+    }
+
+    &::after {
+      transition: all 200ms ease;
+      opacity: 0.35;
+      background: linear-gradient(to right, rgba($ioCyan, 0), rgba($ioCyan, 1));
+    }
+
+    &--left::after {
+      background: linear-gradient(to left, rgba($ioCyan, 0), rgba($ioCyan, 1));
+    }
+
+    &--hidden {
+      pointer-events: none;
+
+      &::after {
+        opacity: 0 !important;
+      }
+
+      .Button {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+    }
+  }
+
+  @include isDesktop {
+    &:hover {
+      .Carousel__Button {
+        &::after {
+          opacity: 0.65;
+        }
+      }
+    }
+  }
+}

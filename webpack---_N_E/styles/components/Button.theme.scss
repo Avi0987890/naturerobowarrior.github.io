@@ -1,0 +1,72 @@
+.Button {
+  &--primary {
+    border: none;
+    background-image: linear-gradient(to bottom, #2AB5E3, #289ED4);
+    background-size: 100% 100%;
+    box-shadow: 0 3px 7px #333641, 0 0 0 0 #41DDFF inset;
+    text-shadow: 0 1px 2px #2470B7;
+    transition: box-shadow 1s ease;
+
+    @include isDesktop {
+      &:hover {
+        box-shadow: 0 3px 7px #21252E, 0 0 0 2px #41DDFF inset;
+        transition: box-shadow 200ms ease;
+      }
+    }
+  }
+
+  &--secondary {
+    border: none;
+    background-image: linear-gradient(to bottom, #FFA101, #DA8214);
+    background-size: 100% 100%;
+    box-shadow: 0 3px 7px #333641, 0 0 0 0 #FFC42E inset;
+    text-shadow: 0 1px 2px darken($ioOrange, 10);
+    transition: box-shadow 1s ease;
+
+    @include isDesktop {
+      &:hover {
+        box-shadow: 0 3px 7px #21252E, 0 0 0 2px #FFC42E inset;
+        transition: box-shadow 200ms ease;
+      }
+    }
+  }
+
+  &--text {
+    border: none;
+    text-decoration: none;
+
+    &:before {
+      background-color: #376A83;
+      transition: background-color 200ms;
+    }
+
+    &::after {
+      background-color: #2AB5E3;
+      right: 100%;
+      opacity: 0.35;
+    }
+
+    @include isDesktop {
+      &:hover {
+        background: transparent;
+
+        &::before {
+          transition-delay: 200ms;
+          background-color: #2AB5E3;
+        }
+
+        &::after {
+          right: 0%;
+          opacity: 1;
+          transition: all 200ms;
+        }
+      }
+    }
+  }
+
+  &--loading {
+    text-shadow: none !important;
+    border-left-color: $themeInverted !important;
+    border-bottom-color: $themeInverted !important;
+  }
+}

@@ -1,0 +1,50 @@
+$sizes: $size1 $size2 $size3 $size4 $size5 $size6 $size7;
+
+.Title,
+.Subtitle {
+  @extend .Block;
+  word-break: break-word;
+  em,
+  span {
+    font-weight: inherit;
+  }
+}
+
+.Title {
+  @if $titleFamily {
+    font-family: $titleFamily;
+  }
+  font-size: $titleSize;
+  font-weight: $titleWeight;
+  line-height: $titleLineHeight;
+  &:not(.Title--spaced) + .Subtitle {
+    margin-top: $subtitleNegativeMargin;
+  }
+  // Sizes
+  @each $size in $sizes {
+    $i: index($sizes, $size);
+    &--size#{$i} {
+      font-size: $size;
+    }
+  }
+}
+
+.Subtitle {
+  @if $subtitleFamily {
+    font-family: $subtitleFamily;
+  }
+  font-size: $subtitleSize;
+  font-weight: $subtitleWeight;
+  line-height: $subtitleLineHeight;
+
+  &:not(.Subtitle--spaced) + .Title {
+    margin-top: $subtitleNegativeMargin;
+  }
+  // Sizes
+  @each $size in $sizes {
+    $i: index($sizes, $size);
+    &--size#{$i} {
+      font-size: $size;
+    }
+  }
+}

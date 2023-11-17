@@ -1,0 +1,25 @@
+@keyframes pageLoaderGlow {
+  0% {
+    background-color: darken($primaryColor, 10);
+  }
+
+  45% {
+    background-color: lighten($primaryColor, 10);
+  }
+
+  55% {
+    background-color: lighten($primaryColor, 10);
+  }
+
+  100% {
+    background-color: darken($primaryColor, 10);
+  }
+}
+
+.PageLoader {
+  background: $primaryColor;
+  animation-duration: 1s;
+  animation-name: pageLoaderGlow;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

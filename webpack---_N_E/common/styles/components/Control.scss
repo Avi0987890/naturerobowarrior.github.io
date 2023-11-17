@@ -1,0 +1,68 @@
+.Control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: $fontSize;
+  position: relative;
+  text-align: inherit;
+
+  // Modifiers
+  &--iconsLeft,
+  &--iconsRight {
+    .Input,
+    .Select {
+      &--small ~ .Icon {
+        font-size: $fontSizeSm;
+      }
+      &--medium ~ .Icon {
+        font-size: $fontSizeMd;
+      }
+      &--large ~ .Icon {
+        font-size: $fontSizeLg;
+      }
+    }
+    .Icon {
+      height: $controlHeight;
+      width: 1.25em;
+      position: absolute;
+      top: 0;
+      z-index: 4;
+    }
+  }
+
+  &--iconsLeft {
+    .Input,
+    .Select select {
+      padding-left: $inputHeight;
+    }
+    .Icon {
+      left: 1em;
+    }
+  }
+
+  &--iconsRight {
+    .Input,
+    .Select select {
+      padding-right: $inputHeight;
+    }
+    .Icon {
+      right: 1em;
+    }
+  }
+
+  &--loading {
+    &::after {
+      position: absolute !important;
+      top: 0.625em;
+      z-index: 4;
+    }
+    &--small:after {
+      font-size: $fontSizeSm
+    }
+    &--medium:after {
+      font-size: $fontSizeMd
+    }
+    &--large:after {
+      font-size: $fontSizeLg
+    }
+  }
+}

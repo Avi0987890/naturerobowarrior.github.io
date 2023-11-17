@@ -1,0 +1,10 @@
+$labelColor: $strongColor !default;
+
+.FieldLabel {
+  color: $labelColor;
+}
+
+.FieldHelp {
+  // Colors
+  @include resultStates;
+}

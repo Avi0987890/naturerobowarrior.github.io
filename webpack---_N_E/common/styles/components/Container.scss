@@ -1,0 +1,27 @@
+.Container {
+  width: 100%;
+
+  padding: 0 $bodySmallScreenPadding;
+
+  @include media('>=widescreen') {
+    padding: 0 $bodyPadding;
+  }
+
+  &--noPadding {
+    padding: 0;
+  }
+
+  &__Inner {
+    width: 100%;
+    margin: 0 auto;
+    max-width: $bodyMaxWidth;
+
+    @include media('>=ultrahd') {
+      max-width: $bodyMaxWidthUltrahd;
+    }
+  
+    &--wide {
+      max-width: none !important;
+    }
+  }
+}

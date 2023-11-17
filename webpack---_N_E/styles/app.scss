@@ -1,0 +1,59 @@
+$breakpoints: (
+  phoneSmall: 375px,
+  phone: 450px,
+  tablet: 768px,
+  desktop: 960px,
+  widescreen: 1152px,
+  highdef: 1344px,
+  ultrahd: 1920px,
+
+);
+@import '@/styles/_globals';
+
+// Global styles
+
+@import '@lib/styles';
+
+// Component overrides
+
+@import '@/styles/components/Box.scss';
+@import '@/styles/components/Button.scss';
+@import '@/styles/components/RouterLink.scss';
+
+$fontFamily: 'Maven Pro', sans-serif;
+$titleFamily: $fontFamily;
+$inputFamily: $fontFamily;
+
+body {
+  background-color: #404451;
+  background-image: radial-gradient(ellipse at top, #404451, #393D49);
+  background-size: cover;
+  background-position: 50% 0;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  font-family: $fontFamily;
+}
+
+#__next {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+}
+
+input, 
+textarea, 
+button, 
+select {
+  font-family: $fontFamily;
+}
+
+.Textarea {
+  border-radius: 1rem;
+}
+
+.GameAdBlock {
+  width: 336px;
+}

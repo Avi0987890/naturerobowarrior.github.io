@@ -1,0 +1,140 @@
+@mixin buttonColor ($color, $colorInverted) {
+  background-color: $color;
+  border-color: transparent;
+  color: $colorInverted;
+  &:hover,
+  &--hovered {
+    background-color: darken($color, 2.5%);
+    border-color: transparent;
+    color: $colorInverted;
+  }
+  &:focus,
+  &--focused {
+    border-color: transparent;
+    color: $colorInverted;
+    &:not(:active) {
+      box-shadow: $buttonFocusBoxShadowSize rgba($color, 0.25);
+    }
+  }
+  &:active,
+  &--active {
+    background-color: darken($color, 5%);
+    border-color: transparent;
+    color: $colorInverted;
+  }
+  &[disabled],
+  fieldset[disabled] &,
+  &--loading {
+    background-color: $color;
+    border-color: transparent;
+    box-shadow: none;
+  }
+  &--loading {
+    &::after {
+      @include loader($colorInverted);
+    }
+  }
+}
+
+.Button {
+  background-color: $buttonBgColor;
+  border-color: $buttonBorderColor;
+  border-width: $buttonBorderWidth;
+  color: $buttonColor;
+
+  strong {
+    color: inherit;
+  }
+
+  // States
+  &:hover,
+  &--hovered {
+    border-color: $buttonHoverBorderColor;
+    color: $buttonHoverColor;
+  }
+  &:focus,
+  &--focused {
+    border-color: $buttonFocusBorderColor;
+    color: $buttonFocusColor;
+    &:not(:active) {
+      box-shadow: $buttonFocusBoxShadowSize $buttonFocusBoxShadowColor;
+    }
+  }
+  &:active,
+  &--active {
+    border-color: $buttonActiveBorderColor;
+    color: $buttonActiveColor;
+  }
+  
+  // Modifiers
+  &[disabled],
+  fieldset[disabled] &,
+  &--loading {
+    background-color: $buttonDisabledBgColor;
+    border-color: $buttonDisabledBorderColor;
+    box-shadow: $buttonDisabledShadow;
+    opacity: $buttonDisabledOpacity;
+  }
+  &--loading {
+    &::after {
+      @include loader;
+    }
+  }
+  &--static {
+    background-color: $buttonStaticBgColor;
+    border-color: $buttonStaticBorderColor;
+    color: $buttonStaticColor;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  // Colors/styles
+  &--primary {
+    @include buttonColor($primaryColor, $primaryColorInverted);
+  }
+  &--secondary {
+    @include buttonColor($secondaryColor, $secondaryColorInverted);
+  }
+  &--tertiary {
+    @include buttonColor($tertiaryColor, $tertiaryColorInverted);
+  }
+  &--success {
+    @include buttonColor($successColor, $successColorInverted);
+  }
+  &--warning {
+    @include buttonColor($warningColor, $warningColorInverted);
+  }
+  &--error {
+    @include buttonColor($errorColor, $errorColorInverted);
+  }
+  &--light {
+    @include buttonColor($bgColor, $fontColor);
+  }
+  &--dark {
+    @include buttonColor($fontColor, $bgColor);
+  }
+  &--text {
+    background-color: transparent;
+    border-color: transparent;
+    color: $buttonTextColor;
+    text-decoration: $buttonTextDecoration;
+    &:hover,
+    &--hovered,
+    &:focus,
+    &--focused {
+      background-color: $buttonTextHoverBgColor;
+      color: $buttonTextHoverColor;
+    }
+    &:active,
+    &--active {
+      background-color: darken($buttonTextHoverBgColor, 5%);
+      color: $buttonTextHoverColor;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+  }
+}

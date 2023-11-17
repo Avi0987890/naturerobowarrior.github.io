@@ -1,0 +1,41 @@
+@mixin checkboxRadioTheme {
+  &[disabled],
+  fieldset[disabled] &,
+  input[disabled] {
+    color: $inputDisabledColor;
+  }
+
+  input + span {
+    @include inputTheme;
+    box-shadow: $inputShadow;
+  }
+  input[checked] + span {
+    background-color: $inputFocusBorderColor;
+    border-color: $inputFocusBorderColor;
+    &:focus,
+    &:active {
+      box-shadow: $inputFocusBoxShadowSize rgba($inputFocusBorderColor, 0.25);
+    }
+  }
+  input[readonly] + span {
+    box-shadow: none;
+  } 
+
+  // Colors
+  &--error {
+    input + span {
+      border-color: $errorColor;
+      &:focus,
+      &:active {
+        border-color: $errorColor;
+        box-shadow: $inputFocusBoxShadowSize rgba($errorColor, 0.25);
+      } 
+    }
+  }
+}
+.Checkbox {
+  @include checkboxRadioTheme;
+}
+.Radio {
+  @include checkboxRadioTheme;
+}

@@ -1,0 +1,56 @@
+@mixin inputTextarea {
+  @include input;
+
+  max-width: 100%;
+  width: 100%;
+
+  // Sizes
+  &--small {
+    @include controlSmall;
+  }
+  &--medium {
+    @include controlMedium;
+  }
+  &--large {
+    @include controlLarge;
+  }  
+}
+
+.Input {
+  @include inputTextarea;
+
+  &--rounded {
+    border-radius: $radiusRounded;
+    padding-left: calc(#{$controlPaddingHorizontal} + 0.375em);
+    padding-right: calc(#{$controlPaddingHorizontal} + 0.375em);
+  }
+
+  &[type='number'] {
+    width: auto;
+    min-width: 8em;
+    text-align: center;
+  }
+}
+
+.Textarea {
+  @include inputTextarea;
+
+  display: block;
+  max-width: 100%;
+  min-width: 100%;
+  padding: $textareaPadding;
+  resize: vertical;
+
+  &:not([rows]) {
+    max-height: $textareaMaxHeight;
+    min-height: $textareaMinHeight;
+  }
+  &[rows] {
+    height: initial;
+  }  
+  
+  // Modifiers
+  &--fixedSize {
+    resize: none;
+  }
+}

@@ -1,0 +1,54 @@
+html {
+  font-size: $rootSize;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  @include media('>ultrahd') {
+    font-size: $rootSizeLg;
+  }
+
+  @include isMobile {
+    font-size: $rootSizeSm;
+  }
+}
+
+body {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  line-height: $lineHeight;
+  overflow-x: hidden;
+
+  &.--fullScreen {
+    overflow: hidden;
+  }
+}
+
+input,
+select,
+textarea {
+  font-family: $fontFamily;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+code,
+pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: monospace;
+}
+
+hr {
+  border: none;
+  display: block;
+  height: $hrHeight;
+  margin: $hrMargin 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
